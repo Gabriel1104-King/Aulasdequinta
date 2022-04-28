@@ -35,8 +35,39 @@ const data = [
 ];
 
 function cadastrar(aluno) {
+    aluno.id = data.length+1;
+    
+    if(aluno.nome === undefined) {
+        return {
+            erro: true,
+            mensagem: "Campo 'nome' é obrigatório!"
+        };
+    }
+   
 
+    if(aluno.sexo === undefined) {
+        return {
+            erro: true,
+            mensagem: "Campo 'sexo' é obrigatório!"
+        }
+    }
+
+    
+
+
+    if(aluno.sexo !== 'Masculino' || aluno.sexo !== 'Feminino') {
+        return {
+            erro: true,
+            mensagem: "Campo 'sexo' deve ser 'Masculino' ou 'Feminino'!"
+        }
+    }
+    data.push(aluno);
+    return aluno;
 }
+        
+    
+
+
 
 function listar() {
 
